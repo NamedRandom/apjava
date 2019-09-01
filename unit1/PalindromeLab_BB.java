@@ -60,12 +60,12 @@ public class PalindromeLab_BB {
        if(str.length()<=1) return str;
        String out="";
        for(int i=str.length()-1;i>=0;i--)
-           out+=str.charAt(i);
-       return str;
+           out=out+str.charAt(i);
+       return out;
 
    }
    public static boolean isPalindrome (String str){
-       return false;
+       return str!=null&&!(str.equals(""))&&reverse(str).equalsIgnoreCase(str);
    }
    
    public static String changeToPalindrome (String str){
