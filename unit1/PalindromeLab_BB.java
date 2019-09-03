@@ -49,6 +49,9 @@ public class PalindromeLab_BB {
       System.out.println ("\n");
       //
       String [] array={"street", null, "break", "oha", "", "pit", null,"atOyotA"};// changeArrayToPalindrome(String [] arr);
+      String [] arrayPalindrome=changeArrayToPalindrome(array);
+      //for(int i=0;i<array.length;i++) System.out.println(array[i]+" --> "+arrayPalindrome[i]);
+      System.out.println(Arrays.toString(array)+"\n"+Arrays.toString(arrayPalindrome));
       //here you will need to test changeArrayToPalindrome(array) method
       // output:
       //[street, null, break, oha, , pit, null, atOyotA]
@@ -69,9 +72,14 @@ public class PalindromeLab_BB {
    }
    
    public static String changeToPalindrome (String str){
-       return "";
+       if(str==null) return null;
+       if(str=="") return "";
+       if(str.length()%2==0) return str.substring(0,str.length()/2)+reverse(str).substring(str.length()/2);
+       return str.substring(0,str.length()/2+1)+reverse(str).substring(str.length()/2+1);
    }
    public static String [] changeArrayToPalindrome(String [] arr){
-       return new String[] {""};
+       String[] out = new String[arr.length];
+       for(int i=0;i<arr.length;i++) out[i]=changeToPalindrome(arr[i]);
+       return out;
    }
 }
