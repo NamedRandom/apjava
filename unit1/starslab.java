@@ -51,7 +51,7 @@ class starslab{
     public static void genRow(int spaces, int stars){
         String space=" ";
         if(spaces == -2) space="";
-        for(;spaces>=0;spaces--) System.out.print(" ");
+        for(;spaces>=0;spaces--) System.out.print(space);
         for(;stars>=0;stars--) System.out.print("*"+space);
         System.out.println();
     }
