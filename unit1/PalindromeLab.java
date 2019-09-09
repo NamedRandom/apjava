@@ -1,5 +1,5 @@
 import java.util.*;
-public class PalindromeLab_BB {
+public class PalindromeLab {
    public static void main (String [] args){
       String s1=null;
       System.out.println (reverse(s1));//null
