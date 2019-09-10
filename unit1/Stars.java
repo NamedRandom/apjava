@@ -1,4 +1,4 @@
-class starslab{
+class Stars{
     public static void main(String[] args){
         /*
         genRow is a for loop to make arg1 spaces then arg2 stars,
@@ -95,7 +95,7 @@ class starslab{
         String space=" ";
         if(spaces == -2) space="";
         for(;spaces>=0;spaces--) System.out.print(space);
-        for(;stars>=0;stars--) System.out.print(" "+space);
+        for(;stars>=0;stars--) System.out.print("*"+space);
         System.out.println();
     }
 }
