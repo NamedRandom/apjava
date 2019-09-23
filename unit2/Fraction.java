@@ -21,6 +21,12 @@ public class Fraction
     public int getDenominator(){
         return d;
     }
+    public void setNumerator(int n){
+        this.n = n;
+    }
+    public void setDenominator(int d){
+        this.d = d;
+    }
     public String toString(){
         if(n==0||d==1) return ""+n/d;
         return ""+n+"/"+d;
