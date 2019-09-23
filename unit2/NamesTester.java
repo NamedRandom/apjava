@@ -16,9 +16,12 @@ class NamesTester{
             names.add(tempName);
         }
         for(Name n : names)
-            System.out.print(n.firstMiddleLast()+"\n"+n.lastFirstMiddle()+"\nInitials: "+n.initials()+"\nLength: "+n.length());
+            System.out.print(n.firstMiddleLast()+"\n"+n.lastFirstMiddle()+"\nInitials: "+n.initials()+"\nLength: "+n.length()+"\n");
         for(Name n : names)
-            for(int i=0;i<names.size();i++)
-                n.equals(names.get(i));
+            for(int i=0;i<names.size();i++){
+                Name n2 = names.get(i);
+                if(n!=n2)
+                System.out.println(n+" equals "+n2+": "+n.equals(n2));
+            }
     }
 }

@@ -1,6 +1,6 @@
 class Car{
-    private String color = "";
-    private double speed = 0;
+    private String color;
+    private double speed;
 
     Car(){
         color="black";
