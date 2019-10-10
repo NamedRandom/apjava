@@ -16,7 +16,9 @@ class Fraction implements Comparable<Fraction>
         this(0,1);
     }
     public int compareTo(Fraction o){
-        return (int)(decimalValue() - o.decimalValue());
+        if(o.decimalValue()>decimalValue()) return -1;
+        if(o.decimalValue()<decimalValue()) return 1;
+        return 0;
     }
     public int getNumerator(){
         return n;
@@ -52,7 +54,7 @@ class Fraction implements Comparable<Fraction>
         return this.getNumerator()==that.getNumerator()&&this.getDenominator()==that.getDenominator();
     }
     double decimalValue(){
-        return n/d;
+        return (double)n/d;
     }
     int gcf(int x,int y){
 		if (y == 0) return x;
