@@ -1,0 +1,5 @@
+interface Gradeable
+{
+    double getPercent();
+    boolean isPassing();
+}
