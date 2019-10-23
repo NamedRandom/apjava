@@ -1,0 +1,507 @@
+class Car{
+    private String color;
+    private double speed;
+
+    Car(){
+        color="black";
+        speed=0.0;
+    }
+    Car(String inColor, double inSpeed){
+        color=inColor;
+        speed=inSpeed;
+    }
+    public double getSpeed(){
+        return speed;
+    }
+    public String getColor(){
+        return color;
+    }
+    public void setSpeed(double s){
+        speed=s;
+    }
+    public void setColor(String c){
+        color=c;
+    }
+    public void go(){
+        go(60);
+    }
+    public void go(double inSpeed){
+        speed=inSpeed;
+        System.out.println("The car is moving with speed "+speed);
+    }
+    public void stop(){
+        speed=0;
+        System.out.println("The car is not moving. The speed is "+speed);
+    }
+    public String toString(){
+        return "I am a car with speed "+speed+" and color "+color;
+    }
+}
+public class Fraction
+{
+    private int n;
+    private int d;
+
+    public Fraction(int n,int d){
+        if (d==0){
+            System.out.println("Denominator is zero!");
+            d=1;
+        }
+        this.n = n;
+        this.d = d;
+        simplify();
+    }
+    public Fraction(){
+        this(0,1);
+    }
+    public int getNumerator(){
+        return n;
+    }
+    public int getDenominator(){
+        return d;
+    }
+    public void setNumerator(int n){
+        this.n = n;
+    }
+    public void setDenominator(int d){
+        this.d = d;
+    }
+    public String toString(){
+        if(n==0||d==1) return ""+n/d;
+        return ""+n+"/"+d;
+    }
+    public Fraction add(Fraction that){
+        return new Fraction(this.n*that.getDenominator()+that.getNumerator()*this.d,that.getDenominator()*this.d);
+    }
+    public Fraction subtract(Fraction that){
+        return new Fraction(this.n*that.getDenominator()-that.getNumerator()*this.d,that.getDenominator()*this.d);
+    }
+    public Fraction multiply(Fraction that){
+        return new Fraction(this.getNumerator()*that.getNumerator(),this.getDenominator()*that.getDenominator());
+    }
+    public Fraction divide(Fraction that){
+        return new Fraction((this.getNumerator()*that.getDenominator()),this.getDenominator()*that.getNumerator());
+    }
+    public boolean equals(Fraction that){
+        this.simplify();
+        that.simplify();
+        return this.getNumerator()==that.getNumerator()&&this.getDenominator()==that.getDenominator();
+    }
+    double decimalValue(){
+        return n/d;
+    }
+    int gcf(int x,int y){
+		if (y == 0) return x;
+    	return gcf(y, x % y);
+    }
+    void simplify(){
+		int gcd=gcf(n,d);
+		n/=gcd;
+		d/=gcd;
+    }
+}
+import java.util.Random;
+
+public class FractionTester{
+    public static void main(String[] args){
+        Fraction arr[] = new Fraction[10];
+        Random rng = new Random();
+        for(int i=0;i<arr.length;i++)
+            arr[i]= new Fraction(rng.nextInt(50)-24,rng.nextInt(50)-24);
+
+        for(int i=0;i<arr.length;i++)
+            for(int j=0;j<i;j++){
+            System.out.println(""+arr[i]+" plus "+arr[j]+" = "+arr[i].add(arr[j]));
+            System.out.println(""+arr[i]+" minus "+arr[j]+" = "+arr[i].subtract(arr[j]));
+            System.out.println(""+arr[i]+" times "+arr[j]+" = "+arr[i].multiply(arr[j]));
+            System.out.println(""+arr[i]+" divided by "+arr[j]+" = "+arr[i].divide(arr[j]));
+
+        }
+        Fraction arr2[] = new Fraction[4];
+        arr2[0] = new Fraction();
+        arr2[1] = new Fraction(3,8);
+        arr2[2] = new Fraction(8,12);
+        arr2[3] = new Fraction(3,8);
+
+        for(int i=0;i<arr2.length;i++)
+            for(int j=0;j<i;j++)
+            System.out.println(""+arr2[i]+" equals "+arr2[j]+" = "+arr2[i].equals(arr2[j]));
+
+    }
+}
+class Name{
+
+    private String first;
+    private String last;
+    private String middle;
+
+    Name(){
+        first="";
+        last="";
+        middle="";
+    }
+
+    Name(String f,String m,String l){
+        first=f;
+        middle=m;
+        last=l;
+    }
+    public String getFirst(){
+        return first;
+    }
+    public String getMiddle(){
+        return middle;
+    }
+    public String getLast(){
+        return last;
+    }
+    public String firstMiddleLast(){
+        if(middle.equals("")) return first+" "+last;
+        return first+" "+middle+" "+last;
+    }
+    public String lastFirstMiddle(){
+        if(middle.equals("")) return last+" "+first;
+        return last+" "+first+" "+middle;
+    }
+    public boolean equals(Name that){
+        return firstMiddleLast().equalsIgnoreCase(that.firstMiddleLast());
+    }
+    public String initials(){
+        if(middle.equals("")) return first.toUpperCase().substring(0,1)+last.toUpperCase().substring(0,1);
+        return first.toUpperCase().substring(0,1)+middle.toUpperCase().substring(0,1)+last.toUpperCase().substring(0,1);
+    }
+    public int length(){
+        return firstMiddleLast().trim().length();
+    }
+    public String toString(){
+        return firstMiddleLast();
+    }
+}
+import java.util.*;
+
+class NamesTester{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        ArrayList<Name> names = new ArrayList<Name>();
+        int namecount = 3;
+        for(int i=0;i<namecount;i++){
+            System.out.print("Enter first name: ");
+            String first = input.nextLine();
+            System.out.print("Enter middle name: ");
+            String middle = input.nextLine();
+            System.out.print("Enter last name: ");
+            String last = input.nextLine();
+            Name tempName = new Name(first,middle,last);
+            names.add(tempName);
+        }
+        for(Name n : names)
+            System.out.print(n.firstMiddleLast()+"\n"+n.lastFirstMiddle()+"\nInitials: "+n.initials()+"\nLength: "+n.length()+"\n");
+        for(Name n : names)
+            for(int i=0;i<names.size();i++){
+                Name n2 = names.get(i);
+                if(n!=n2)
+                System.out.println(n+" equals "+n2+": "+n.equals(n2));
+            }
+    }
+}
+class SimpleDate{
+
+    private int day,month,year;
+    private int[] month30 = {4,6,9,11};
+
+    public SimpleDate(int d,int m,int y){
+        day = d;
+        month = m;
+        year = y;
+        fix();
+    }
+    public SimpleDate(int m, int y){
+        this(1,m,y);
+    }
+    public SimpleDate(int y){
+        this(1,1,y);
+    }
+    void advanceDay(){
+        day++;
+        fix();
+    }
+    void advanceMonth(){
+        month++;
+        fix();
+    }
+    void advanceYear(){
+        year++;
+    }
+    int daysInMonth(){
+        if(month==2){
+            if(isLeapYear()) return 29;
+            return 28;
+        }
+        for(int i:month30)
+            if(month==i) return 30;
+
+        return 31;
+
+    }
+    int getDay(){
+        return day;
+    }
+    int getMonth(){
+        return month;
+    }
+    int getYear(){
+        return year;
+    }
+    String getLongDate(){
+        switch(month){
+            case 1: return "January "+day+", "+year;
+            case 2: return "February "+day+", "+year;
+            case 3: return "March "+day+", "+year;
+            case 4: return "April "+day+", "+year;
+            case 5: return "May "+day+", "+year;
+            case 6: return "June "+day+", "+year;
+            case 7: return "July "+day+", "+year;
+            case 8: return "August "+day+", "+year;
+            case 9: return "September "+day+", "+year;
+            case 10: return "October "+day+", "+year;
+            case 11: return "November "+day+", "+year;
+            case 12: return "December "+day+", "+year;
+        }
+        return "";
+    }
+    String getShortDate(){
+        return month+"/"+day+"/"+year;
+    }
+    boolean isLeapYear(){
+        return (year!=0&&year%400==0||year%4==0&&year%100!=0);
+    }
+    void fix(){
+        //feb case
+        if(month==2&&day>27){
+            if(isLeapYear()) {
+                day-=29;
+                month++;
+            }
+            else{
+                day-=28;
+                month++;
+            }
+            fix();
+        }
+        //feb chunk complete
+
+        if(month!=2&&day>29){
+            for(int i:month30) if(month==i&&day>30){
+                day-=30;
+                month++;
+            }
+            else {
+                day-=31;
+                month++;
+            }
+            fix();
+        }
+
+
+        if(month>12){
+            month-=12;
+            year++;
+            fix();
+        }
+    }
+}
+    public class SimpleDateTester {
+      public static void main(String[] args) {
+
+      // Test the one argument constructor.
+      // Expected output: date1 Year: 2002
+      //                  date1 Month: 1
+         SimpleDate date1 = new SimpleDate(2002);
+         System.out.println("date1 Year: " + date1.getYear());
+         System.out.println("date1 Month: " + date1.getMonth());
+
+      // Test the two argument constructor.
+      // Expected output: date2 Year: 2001
+      //                  date2 Month: 8
+         SimpleDate date2 = new SimpleDate(8,2001);
+         System.out.println("date2 Year: " + date2.getYear());
+         System.out.println("date2 Month: " + date2.getMonth());
+
+      // Test the two argument constructor with invalid months.
+      // Expected output: date3 Month: 1
+      //                  date4 Month: 1
+         SimpleDate date3 = new SimpleDate(13,2001);
+         SimpleDate date4 = new SimpleDate(0,2001);
+         System.out.println("date3 Month: " + date3.getMonth());
+         System.out.println("date4 Month: " + date4.getMonth());
+         // checking leap year:
+         // •	A year that is not divisible by 4.
+         SimpleDate date5 = new SimpleDate(1997);// false
+         System.out.println("Is date5 a leap year? " + date5.isLeapYear());
+      // •	A year that is divisible by 4 but not divisible by 100 or 400.
+         SimpleDate date6 = new SimpleDate(2016);//true
+         System.out.println("Is date6 a leap year? " + date6.isLeapYear());
+      // •	A year that is divisible by 4 and 100 but not 400.
+         SimpleDate date7 = new SimpleDate(1900);//false
+         System.out.println("Is date7 a leap year? " + date7.isLeapYear());
+
+      // •	A year that is divisible by 4 and 100 and 400.
+         SimpleDate date8 = new SimpleDate(2000);//true
+         System.out.println("Is date8 a leap year? " + date8.isLeapYear());
+      // •	A year prior to 1582 that is a leap year.
+         SimpleDate date9 = new SimpleDate(2, 1580);//true
+         System.out.println("Is date9 a leap year? " + date9.isLeapYear());
+         System.out.println("Num. of days in "+date9.getMonth()+" of " + date9.getYear()+" is "+date9.daysInMonth()); // 29 day in Feb, leap year
+      //	A year prior to 1582 that is not a leap year.
+         SimpleDate date10 = new SimpleDate(3, 1541);//false
+         System.out.println("Is date10 a leap year? " + date10.isLeapYear());
+         System.out.println("Num. of days in "+date10.getMonth()+" of " + date10.getYear()+" is "+date10.daysInMonth());// 31 day in march, not leap
+
+       // Test the 3 argument3 constructor.
+      // Expected output: date11:  10/5/2001
+         SimpleDate date11 = new SimpleDate(5,10,2001);
+         System.out.println("date11:  "+date11.getShortDate());
+         // Expected output: date12:  1/1/2001
+         SimpleDate date12 = new SimpleDate(45,13,2001);
+         System.out.println("date12:  "+date12.getShortDate());
+          // Expected output: date13:  2/29/1580
+         SimpleDate date13 = new SimpleDate(29,2, 1580);
+         System.out.println("date13:  "+date13.getShortDate());
+
+      // Expected output: date14:  7/1/1998
+         SimpleDate date14 = new SimpleDate(0,7,1998);
+         System.out.println("date14:  "+date14.getShortDate());
+      //Test getLongDate method
+      // Expected output: date15:  August 26, 1774
+         SimpleDate date15 = new SimpleDate(26,8,1774);
+         System.out.println("date15:  "+date15.getLongDate());
+         // advance year test
+         SimpleDate date16 = new SimpleDate(28,12,1775); // regular day, not leap year
+         System.out.println("date16:  "+date16.getLongDate());
+         date16.advanceYear(); // expected: date16 plus a year:  December 28, 1776
+         System.out.println("date16 plus a year:  "+date16.getLongDate());
+
+         SimpleDate date17 = new SimpleDate(29,2,1808); // 29 Feb. leap year
+         System.out.println("date17:  "+date17.getLongDate());
+         date17.advanceYear();// expected: date17 plus a year:  Februaury 28, 1809
+         System.out.println("date17 plus a year:  "+date17.getLongDate());
+         SimpleDate date18 = new SimpleDate(29,6,1808); // 29 June leap year
+         System.out.println("date18:  "+date18.getLongDate());
+         date18.advanceYear();// expected: date18 plus a year:  June 29, 1809
+         System.out.println("date18 plus a year:  "+date18.getLongDate());
+
+      // advance month test: regular date
+         SimpleDate date19 = new SimpleDate(20,3,1900); // 20 March 1900
+         System.out.println("date19:  "+date19.getLongDate());
+         date19.advanceMonth();// expected: date19 plus a month:  April 20 1900
+         System.out.println("date19 plus a month:  "+date19.getLongDate());
+      // advance month test: day exceeds the next month length
+         SimpleDate date20 = new SimpleDate(31,10,2001); //
+         System.out.println("date20:  "+date20.getLongDate());
+         date20.advanceMonth();// expected: date20 plus a month:  30 Nov. 2001
+         System.out.println("date20 plus a month:  "+date20.getLongDate());
+      // advance month test: december --> next year
+         SimpleDate date21 = new SimpleDate(15,12,2001); //
+         System.out.println("date21:  "+date21.getLongDate());
+         date21.advanceMonth();// expected: date21 plus a month:  15 Jan. 2002
+         System.out.println("date21 plus a month:  "+date21.getLongDate());
+      // advance month test: January 31 --> Feb.28/29
+         SimpleDate date22 = new SimpleDate(31,1,2000); //  jan.31 leap year -> feb 29.
+         System.out.println("date22:  "+date22.getLongDate());
+         date22.advanceMonth();// expected: ddate22 plus a month:  February 29, 2000
+         System.out.println("date22 plus a month:  "+date22.getLongDate());
+      //
+         SimpleDate date23 = new SimpleDate(31,1,1999); //  jan.31  NOT leap year -> feb 28.
+         System.out.println("date23:  "+date23.getLongDate());
+         date23.advanceMonth();// expected: ddate23 plus a month:  February 28, 1999
+         System.out.println("date23 plus a month:  "+date23.getLongDate());
+
+      // advance a day test: regular date
+         SimpleDate date24 = new SimpleDate(15,5,1789); //
+         System.out.println("date24:  "+date24.getLongDate());
+         date24.advanceDay();// expected: date24 plus a day:  May 16 1789
+         System.out.println("date24 plus a day:  "+date24.getLongDate());
+       // advance a day test: the end of the month
+         SimpleDate date25= new SimpleDate(31,5,1789); //
+         System.out.println("date25:  "+date25.getLongDate());
+         date25.advanceDay();// expected: date25 plus a day:  June 1 1789
+         System.out.println("date25 plus a day:  "+date25.getLongDate());
+         // advance a day test: 31 December
+         SimpleDate date26 = new SimpleDate(31,12,1789); //
+         System.out.println("date26:  "+date26.getLongDate());
+         date26.advanceDay();// expected: date26 plus a day:  Jan.1 1790
+         System.out.println("date 26 plus a day:  "+date26.getLongDate());
+      }
+   }
+/*
+   date1 Year: 2002
+ date1 Month: 1
+ date2 Year: 2001
+ date2 Month: 8
+ date3 Month: 1
+ date4 Month: 1
+ Is date5 a leap year? false
+ Is date6 a leap year? true
+ Is date7 a leap year? false
+ Is date8 a leap year? true
+ Is date9 a leap year? true
+ Num. of days in 2 of 1580 is 29
+ Is date10 a leap year? false
+ Num. of days in 3 of 1541 is 31
+ date11:  10/5/2001
+ date12:  1/1/2001
+ date13:  2/29/1580
+ date14:  7/1/1998
+ date15:  August 26, 1774
+ date16:  December 28, 1775
+ date16 plus a year:  December 28, 1776
+ date17:  February 29, 1808
+ date17 plus a year:  February 28, 1809
+ date18:  June 29, 1808
+ date18 plus a year:  June 29, 1809
+ date19:  March 20, 1900
+ date19 plus a month:  April 20, 1900
+ date20:  October 31, 2001
+ date20 plus a month:  November 30, 2001
+ date21:  December 15, 2001
+ date21 plus a month:  January 15, 2002
+ date22:  January 31, 2000
+ date22 plus a month:  February 29, 2000
+ date23:  January 31, 1999
+ date23 plus a month:  February 28, 1999
+ date24:  May 15, 1789
+ date24 plus a day:  May 16, 1789
+ date25:  May 31, 1789
+ date25 plus a day:  June 1, 1789
+ date26:  December 31, 1789
+ date 26 plus a day:  January 1, 1790
+
+
+
+*/
+
+class TestVehicles{
+    public static void main(String[] args){
+        Car slowCar = new Car();
+        Car fastCar = new Car("red",100.0);
+
+        System.out.println("slowCar's speed: "+slowCar.getSpeed()+" slowCar's color: "+slowCar.getColor());
+        slowCar.setSpeed(45);
+        slowCar.setColor("green");
+        System.out.println("slowCar's speed: "+slowCar.getSpeed()+" slowCar's color: "+slowCar.getColor());
+        System.out.println(slowCar);
+        slowCar.go();
+        slowCar.go(50);
+        slowCar.stop();
+
+
+        System.out.println("fastCar's speed: "+fastCar.getSpeed()+" fastCar's color: "+fastCar.getColor());
+        fastCar.setSpeed(0);
+        fastCar.setColor("yellow");
+        System.out.println("fastCar's speed: "+fastCar.getSpeed()+" fastCar's color: "+fastCar.getColor());
+        System.out.println(fastCar);
+        fastCar.go();
+        fastCar.go(120);
+        fastCar.stop();
+    }
+}

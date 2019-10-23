@@ -1,7 +1,7 @@
 import java.util.*;
 
 class FractionChecker{
-    public static void main(String args[]){
+    public static void main(String[] args){
         int n, d;
         Random rand = new Random();
         Fraction[] f = new Fraction [20];
