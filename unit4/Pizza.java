@@ -2,7 +2,7 @@ import java.util.*;
 
 class Pizza {
 
-  private final int MAX = 1500;
+  private final int MAX = 15;
   public String[] toppings;
   private int numToppings;
 
@@ -44,16 +44,6 @@ class Pizza {
   */
   public int binarySearch(String s) {
     return binarySearch(s, 0, toppings.length - 1);
-  }
-
-  public int iterhelp(String s) {
-    return iter(s);
-  }
-
-  public int iter(String string) {
-    int index = 0;
-    for (int i = 0; i < toppings.length; i++) if (toppings[i].equals(string)) index = i;
-    return index;
   }
 
   public int binarySearch(String s, int lower, int upper) {
