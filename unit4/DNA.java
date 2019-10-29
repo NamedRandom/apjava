@@ -10,10 +10,14 @@ class DNA {
 
     char[] dna1, dna2;
 
-        dna1 = new char[]{'A','C','T','C','T','T','A','G','G'}; // this set has 2 mismatches forward
-        dna2 = new char[]{'G','C','C','C','T','T','A','G','G'};
+    dna1 =
+        new char[] {
+          'A', 'C', 'T', 'C', 'T', 'T', 'A', 'G', 'G'
+        }; // this set has 2 mismatches forward
+    dna2 = new char[] {'G', 'C', 'C', 'C', 'T', 'T', 'A', 'G', 'G'};
 
-    //    dna1 = new char[] {'A', 'C', 'T', 'C', 'T', 'T', 'A', 'G', 'G'}; // this set only matches backward
+    //    dna1 = new char[] {'A', 'C', 'T', 'C', 'T', 'T', 'A', 'G', 'G'}; // this set only matches
+    // backward
     //    dna2 = new char[] {'G', 'G', 'A', 'T', 'T', 'C', 'T', 'C', 'A'};
 
     //    dna1 = new char[]{}; //this errors because of a length mismatch
