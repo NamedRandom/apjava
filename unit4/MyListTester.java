@@ -22,5 +22,9 @@ class MyListTester {
     };
     Pizza p1 = new Pizza(arr1);
     p1.printTopping();
+    System.out.printf("Num toppings: %d\n", p1.getNumToppings());
+    p1.addTopping("olives");
+    p1.addTopping("lemon");
+    p1.addTopping("steak");
   }
 }

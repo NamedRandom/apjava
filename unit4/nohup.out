@@ -1,0 +1,6 @@
+We'll read PDF with zathura.
+/home/asphy/current/labs/Binary Search Pizza Lab_2019.doc
+cat: '/home/asphy/.zaread/cksum/Binary Search Pizza Lab_2019.doc.check': No such file or directory
+convert /home/asphy/current/labs/Binary Search Pizza Lab_2019.doc -> /home/asphy/.zaread/Binary Search Pizza Lab_2019.pdf using filter : writer_pdf_Export
+Overwriting: /home/asphy/.zaread/Binary Search Pizza Lab_2019.pdf
+/home/asphy/bin/zaread: line 63: /home/asphy/.zaread/cksum/Binary Search Pizza Lab_2019.doc.check: No such file or directory
