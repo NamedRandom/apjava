@@ -8,39 +8,49 @@ class Pizza {
 
   public Pizza(String[] t) {
     if (t.length > MAX) return;
-    toppings = t;
-    Arrays.sort(toppings);
-    numToppings = 0;
-    for (String s : toppings) {
-      if (s != null && !(s.equals("zzz"))) numToppings++;
-    }
-    String[] tmp = new String[numToppings];
-    int index = 0;
-    for (String s : toppings) {
-      if (s != null && !(s.equals("zzz"))) {
-        tmp[index] = s;
-        index++;
-      }
-    }
-    toppings = tmp;
+    ArrayList<String> tmp = new ArrayList<String>();
+    for (String s : t) if (t != null && !t.equals("zzz")) tmp.add(s);
+    toppings = tmp.toArray(new String[0]);
+    sort();
+    numToppings = toppings.length;
   }
 
-  public int getNumToppings() {
+  public int getNumTopping() {
     return numToppings;
   }
 
   public void printTopping() {
-    for (int i = 0; i < toppings.length; i++) System.out.println("" + (i + 1) + ". " + toppings[i]);
+    // for (int i = 0; i < toppings.length; i++) System.out.println("" + (i + 1) + ". " +
+    // toppings[i]);
+    System.out.println(Arrays.toString(toppings));
   }
+
+  public void sort() {
+    for (int i = (toppings.length - 1); i >= 0; i--) {
+      for (int j = 1; j <= i; j++) {
+        if (toppings[j - 1].compareTo(toppings[j]) > 0) {
+          String temp = toppings[j - 1];
+          toppings[j - 1] = toppings[j];
+          toppings[j] = temp;
+        }
+      }
+    }
+    numToppings = toppings.length;
+  }
+
   public boolean addTopping(String topping) {
-    if (numToppings > 15) return false;
-
-
-
+    if (numToppings >= 15 || topping == null || topping.equals("zzz")) return false;
+    String[] tmp = new String[toppings.length + 1];
+    for (int i = 0; i < toppings.length; i++) tmp[i] = toppings[i];
+    tmp[toppings.length] = topping;
+    toppings = tmp;
+    sort();
 
     return true;
   }
+
   public int binarySearch(String s) {
+    if (s == null) return -1;
     return binarySearch(s, 0, toppings.length - 1);
   }
 
