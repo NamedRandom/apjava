@@ -7,9 +7,8 @@ class Pizza {
   private int numToppings;
 
   public Pizza(String[] t) {
-    if (t.length > MAX) return;
     ArrayList<String> tmp = new ArrayList<String>();
-    for (String s : t) if (t != null && !t.equals("zzz")) tmp.add(s);
+    for (String s : t) if (tmp.size() <= MAX && s != null && !s.equals("zzz")) tmp.add(s);
     toppings = tmp.toArray(new String[0]);
     sort();
     numToppings = toppings.length;
