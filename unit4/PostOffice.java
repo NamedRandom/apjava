@@ -22,7 +22,7 @@ public class PostOffice {
    * @param boxNum The number of the post office box in which the Letter will be placed.
    */
   public boolean placeLetter(Letter mail, int boxNum) {
-    if (boxNum >= pobox.length || boxNum < 0) return false;
+    if (pobox[boxNum] != null && boxNum >= pobox.length || boxNum < 0) return false;
     pobox[boxNum] = mail;
     return true;
   }
