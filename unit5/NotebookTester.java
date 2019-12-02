@@ -1,6 +1,6 @@
 class NotebookTester {
   public static void main(String[] args) {
-    /*
+
     Notebook book = new Notebook();
     book.storeNote("This is my first note.");
     book.storeNote("Second note.");
@@ -20,14 +20,14 @@ class NotebookTester {
     book.demoteNote(1);
     book.listNotes();
     System.out.println();
-    */
-    Notebook book;
-    book = new Notebook();
-    book.storeNote("one");
-    book.storeNote("two");
-    book.storeNote("three");
-    book.listNotes();
-    book.swapNotes(1);
-    book.listNotes();
+
+    Notebook book2;
+    book2 = new Notebook();
+    book2.storeNote("one");
+    book2.storeNote("two");
+    book2.storeNote("three");
+    book2.listNotes();
+    book2.swapNotes(1);
+    book2.listNotes();
   }
 }

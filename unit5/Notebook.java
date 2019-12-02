@@ -60,6 +60,7 @@ public class Notebook {
     if (noteNumber < 0) return;
     if (noteNumber > numberOfNotes()) return;
 
+	if(notes.get(noteNumber).startsWith("Urgent: ")) demoteNote(noteNumber);
     notes.add(noteNumber + 2, notes.get(noteNumber));
     this.removeNote(noteNumber);
   }
