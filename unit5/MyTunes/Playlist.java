@@ -43,6 +43,7 @@ public class Playlist { // Instance variable
   }
 
   public boolean addSongsFrom(Playlist p) {
+    if (p.totalSongs() == 0) return false;
     for (Song s : p.getList()) if (!songs.contains(s)) songs.add(s);
     return true;
   }

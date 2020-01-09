@@ -21,5 +21,9 @@ public class TunesTester {
     if (favorites.addSong(s1)) System.out.println(s1 + " Added");
     if (favorites.addSongsFrom(p)) System.out.println(p + " Added");
     favorites.getList(); // getList() returns List<Song> type and toString() in ArrayList class
+    Playlist test = new Playlist("test");
+    test.addSong(s1);
+    test.addSong(s2);
+    System.out.println(test.addSongsFrom(new Playlist("empty")));
   }
 }

@@ -44,7 +44,7 @@ public class StudentsLab {
 
   // Write a method to printList() to print out the list numbered vertically
   public static void printList(ArrayList<String> x) {
-    for (String s : x) System.out.println(s);
+    for (int i = 0; i < x.size(); i++) System.out.println(i + ": " + x.get(i));
   }
 
   // Write a method to delete all names that start with a given character
