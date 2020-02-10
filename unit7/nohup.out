@@ -1,6 +1,0 @@
-We'll read PDF with zathura.
-/home/asphy/current/calendar.doc
-cat: /home/asphy/.zaread/cksum/calendar.doc.check: No such file or directory
-convert /home/asphy/current/calendar.doc -> /home/asphy/.zaread/calendar.pdf using filter : writer_pdf_Export
-Overwriting: /home/asphy/.zaread/calendar.pdf
-/home/asphy/bin/zaread: line 63: /home/asphy/.zaread/cksum/calendar.doc.check: No such file or directory
