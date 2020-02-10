@@ -1,11 +1,11 @@
-class AccidentsTester{
-    public static void main(String[] args){
-        Accidents a = new Accidents();
+class AccidentsTester {
+  public static void main(String[] args) {
+    Accidents a = new Accidents();
 
-        a.printAccidents();
+    a.printAccidents();
 
-        a.totalAccidents();
+    a.totalAccidents();
 
-        a.mostAccidentsHour();
-    }
+    a.mostAccidentsHour();
+  }
 }
