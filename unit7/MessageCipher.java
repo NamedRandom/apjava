@@ -56,8 +56,8 @@ public class MessageCipher {
     String out = "";
     //MessageCipher[] messages = new MessageCipher[message.length()/(numRows*numCols)+1];
     for(int i=0;i<message.length()/(numRows*numCols);i++)
-        out+= (new MessageCipher(numRows,numCols)).fillBlock(message.substring(i*numRows*numCols,i*numRows*numCols+numRows*numCols)).encryptBlock();
-    out+= (new MessageCipher(numRows,numCols)).fillBlock(message.substring((message.length()/(numRows*numCols))*numRows*numCols)).encryptBlock();
+        out+= fillBlock(message.substring(i*numRows*numCols,i*numRows*numCols+numRows*numCols)).encryptBlock();
+    out+= fillBlock(message.substring((message.length()/(numRows*numCols))*numRows*numCols)).encryptBlock();
     return out;
   }
 
