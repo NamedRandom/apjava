@@ -3,8 +3,7 @@ class Car {
   private double speed;
 
   Car() {
-    color = "black";
-    speed = 0.0;
+    this("black",0.0");
   }
 
   Car(String inColor, double inSpeed) {
