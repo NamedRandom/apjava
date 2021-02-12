@@ -50,7 +50,6 @@ class Array2D{
         for(int[] a:arr)
             for(int i:a)
                 tmp[offset+i]++;
-
         int max = 0;
         for(int i:tmp) max = i>max-offset ? i : max;
         return max;

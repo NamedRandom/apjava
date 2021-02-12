@@ -14,7 +14,7 @@ class Card implements Comparable<Card>{
     private String name;
 
     public int compareTo(Card other){
-        return name.compareTo(other);
+        return name.compareTo(other.name);
     }
     public String toString(){
         return "Card name="+name;

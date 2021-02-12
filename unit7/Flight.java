@@ -48,7 +48,7 @@ public class Flight {
   public int findBlock(int row, int seatsNeeded) {
     if (row < 0 || row > mySeats.length - 1 || seatsNeeded <= 0) return -1;
     int index = 0;
-    int seatsInRow=0;
+    int seatsInRow = 0;
     boolean tmp = false;
     for (int j = 0; j < mySeats[0].length - seatsNeeded; j++) {
       seatsInRow = 0;
